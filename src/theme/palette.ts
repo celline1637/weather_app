@@ -8,4 +8,7 @@ export const colors = {
   grey500: '#313131',
   primary: '#F53E00',
   primary100: '#ED7A54',
+  yellow: '#FFD784',
+  pink: '#FFC7CC',
+  blue: '#B2E9E3',
 }
