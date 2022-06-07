@@ -14,7 +14,7 @@ const Routes = () => {
       path: '/city',
       children: [
         { path: 'list', element: <List /> },
-        { path: ':city_pk', element: <Detail /> },
+        { path: ':city_name', element: <Detail /> },
       ],
     },
   ])
