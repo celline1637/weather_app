@@ -1,11 +1,9 @@
-import { useCityList } from '../../hooks/useCityList'
-import useIntersectionObserver from '../../hooks/useIntersectionObserver'
-import { useNavigateTo } from '../../hooks/useNavigateTo'
-import City from './components/City'
+import { useCityList, useIntersectionObserver } from '../../hooks'
+import { ErrorBlock } from '../../components'
+import CityCard from './components/City'
 import * as S from './style'
 
 const List = () => {
-  const { goTo } = useNavigateTo()
   const { data, isLoading, isError, fetchNextPage, hasNextPage } = useCityList()
 
   const observeElement = () => {
@@ -32,19 +30,19 @@ const List = () => {
 
   const list = data?.pages.map((page) => page.items).flat()
 
+  if (isError)
+    return <ErrorBlock message="json 서버가 켜져있는지 확인해주세요 :)" />
+
   return (
     <S.Wrapper>
       {list?.map((el, i) => (
-        <City
+        <CityCard
           key={el.id}
           ref={list?.length === i + 1 ? setTarget : null}
           info={el}
-          onClick={() => {
-            goTo(`/city/${el.name}`)
-            window.scrollTo(0, 0)
-          }}
         />
       ))}
+      {isLoading && <div>Loading...</div>}
     </S.Wrapper>
   )
 }

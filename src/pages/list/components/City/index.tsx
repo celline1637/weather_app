@@ -1,19 +1,25 @@
 import { forwardRef } from 'react'
-import { City as CityTypes } from '../../../../types/city'
+import { useNavigateTo } from '../../../../hooks'
+import { City as CityTypes } from '../../../../types'
 import * as S from './style'
-
 interface propTypes {
   info: CityTypes
-  onClick?: React.MouseEventHandler
 }
 
-const City = forwardRef<HTMLDivElement, propTypes>(({ info, onClick }, ref) => {
+const CityCard = forwardRef<HTMLDivElement, propTypes>(({ info }, ref) => {
+  const { goTo } = useNavigateTo()
   const { name } = info
+
+  const handleClick = () => {
+    goTo(`/city/${name}`)
+    window.scrollTo(0, 0)
+  }
+
   return (
-    <S.Wrapper ref={ref} onClick={onClick}>
+    <S.Wrapper ref={ref} onClick={handleClick}>
       {name}
     </S.Wrapper>
   )
 })
 
-export default City
+export default CityCard
