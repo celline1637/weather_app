@@ -6,6 +6,7 @@
 
 - `package.json`이 위치한 폴더에서 `npm install && npm start` 명령을 하면 http://localhost:3000/ 에 리액트 페이지가 실행됩니다.
 - `npx json-server db.json --port 4000` 을 실행하면 http://localhost:4000/ 에서 json sever가 실행됩니다.
+- citylist.json의 내용은 db.json에 있습니다.
 
 ## File Structure
 
