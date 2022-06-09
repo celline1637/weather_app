@@ -1,46 +1,53 @@
-# Getting Started with Create React App
+# 스푼라디오 프론트엔드 과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### _FE junior sunkyung_
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+- `package.json`이 위치한 폴더에서 `npm install && npm start` 명령을 하면 http://localhost:3000/ 에 리액트 페이지가 실행됩니다.
+- `npx json-server db.json --port 4000` 을 실행하면 http://localhost:4000/ 에서 json sever가 실행됩니다.
 
-### `npm start`
+## File Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+전체 파일 구조는 다음과 같습니다.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+공용컴포넌트 및 페이지 관련 컴포넌트를 분리하고,
+theme, type 관련 값들을 각각 나누어 관리하였습니다.
 
-### `npm test`
+```
+├── public
+├── src/
+│   ├── assets
+│   ├── components
+│   ├── hooks
+│   ├── pages
+│   ├── theme
+│   └── types
+├── App.tsx
+└── Routes.tsx
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Stack
 
-### `npm run build`
+- React
+- React Router DOM v6
+- typescripts : 정적 언어인 typescripts를 사용하여, js의 언어적 단점을 보완하였습니다.
+- styled-components
+- react-query : react-query를 사용하여 server state의 비동기를 처리하였습니다.
+- axios
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Feature
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### /city/list
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+('http://localhost:3000/'에서 'http://localhost:3000/city/list'로 리다이렉트됩니다.)
 
-### `npm run eject`
+- inifinite scroll 기능으로 구현되어있습니다.
+- 이전에 받아왔던 데이터들이 캐시처리하여 성능 최적화와 ux를 고려하였습니다.
+- 포스트 정보를 불러오는 동안 로딩 텍스트가 나타납니다.
+- 도시이름을 검색하면, 해당 도시의 상세페이지로 이동합니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### /city/post
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 해당 페이지 정보를 불러오는 동안 로더가 나타납니다.
+- 뒤로가기 버튼 클릭 시 이전 스크롤 위치로 이동합니다.
