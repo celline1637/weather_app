@@ -6,7 +6,7 @@ const Nav = () => {
     <S.Nav>
       <S.Wrapper>
         <S.StyledLink href="/">
-          <S.Logo>스푼</S.Logo>
+          <S.Logo>도시의 날씨</S.Logo>
         </S.StyledLink>
         <SearchBar />
         <S.MenuWrapper>

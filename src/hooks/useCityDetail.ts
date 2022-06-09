@@ -1,6 +1,6 @@
-import { Weather } from './../types/weather'
-import axios from 'axios'
 import { useQuery } from 'react-query'
+import axios from 'axios'
+import { Weather } from './../types'
 
 export const useCityDetail = (name: string | undefined) => {
   const getWeather = async () => {

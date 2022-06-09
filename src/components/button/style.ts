@@ -14,7 +14,7 @@ type propsType = {
 
 const colorStyles = css<propsType>`
   ${({ theme, color, outline }) => {
-    const selected = theme.colors[color ?? 'primary200']
+    const selected = theme.colors[color ?? 'primary']
     return outline
       ? css`
           color: transparent ${selected};

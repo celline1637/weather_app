@@ -26,7 +26,11 @@ export const Logo = styled.span`
 `
 
 export const MenuWrapper = styled.ul`
-  display: flex;
+  display: none;
+
+  @media ${({ theme }) => theme.tablet} {
+    display: flex;
+  }
 `
 
 export const Menu = styled.li`
@@ -44,8 +48,4 @@ export const Menu = styled.li`
 
 export const StyledLink = styled.a`
   padding: 0 1rem;
-  /* color: ${({ theme }) => theme.colors.black};
-  &:visited {
-    color: ${({ theme }) => theme.colors.black};
-  } */
 `
